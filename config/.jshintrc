@@ -1,0 +1,31 @@
+{
+    "curly": true,
+    "eqeqeq": true,
+    "eqnull": true,
+    "browser": true,
+    "node": true,
+    "immed": false,
+    "latedef": true,
+    "newcap": true,
+    "noarg": true,
+    "sub": true,
+    "undef": true,
+    "boss": true,
+    "globals" : {
+        "it" : false,
+        "xit" : false,
+        "describe" : false,
+        "xdescribe" : false,
+        "beforeEach" : false,
+        "afterEach" : false,
+        "expect" : false,
+        "spyOn" : false,
+        "angular": false,
+        "inject": false,
+        "element": false,
+        "by": false,
+        "protractor": false,
+        "browser": false,
+        "UsersCtrl": false
+    }          
+}
