@@ -25,7 +25,7 @@ Clone the angularjs-starter-app repository.
 
 Install the dependencies.
 
-     $npm install
+     $ npm install
 
 ### Run the application
 
