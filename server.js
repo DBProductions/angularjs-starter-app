@@ -6,9 +6,9 @@ var app = express();
  * simple example data
  */
 var data = [
-    {"_id": 1, "email": "a@abc.com"},
-    {"_id": 2, "email": "b@def.com"},
-    {"_id": 3, "email": "c@ghi.com"}
+    {"_id": 1, "email": "a@abc.com", "age": 22, "gender": "female"},
+    {"_id": 2, "email": "b@def.com", "age": 24, "gender": "male"},
+    {"_id": 3, "email": "c@ghi.com", "age": 23, "gender": "female"}
 ];
 /**
  * helper functions
@@ -28,7 +28,7 @@ function getDataEntry(data, id, type, update) {
 }
 function setDataEntry(data, update) {
 	var curId = getHighest(data)._id;
-	var entry = {_id: curId+1, email: update.email};
+	var entry = {_id: curId+1, email: update.email, age: update.age, gender: update.gender};
     data.push(entry);
 }
 function getHighest(array) {

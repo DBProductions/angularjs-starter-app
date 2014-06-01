@@ -33,12 +33,12 @@ module.exports = function(grunt) {
                     ],
                     template: require('grunt-template-jasmine-istanbul'),
                     templateOptions: {
-                        coverage: 'test/coverage/coverage.json',
+                        coverage: 'coverage.json',
                         report: [
                             {
                                 type: 'html',
                                 options: {
-                                    dir: 'test/coverage/html'
+                                    dir: 'coverage/html'
                                 }
                             }                      
                         ]

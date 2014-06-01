@@ -1,6 +1,6 @@
 # AngularJS starter app
 
-Is a simple AngualrJS application, ready to extend.  
+A simple AngualrJS application, ready to extend.  
 
 jQuery v1.11.0  
 jQuery UI v1.10.4  
