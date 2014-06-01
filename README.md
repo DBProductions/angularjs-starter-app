@@ -8,18 +8,36 @@ Twitter Bootstrap v3.1.1
 Font Awesome v4.0.3  
 Angular v1.2.15  
 
-
 ## Getting started
 
+To start you can clone the angular-starter-app repository, install the dependencies and start the server.
+
+### Prerequisites
+
+You must have git, node and npm installed.
+
+### Clone repository
+
+Clone the angularjs-starter-app repository.
+
+    $ git clone git@github.com:DBProductions/angularjs-starter-app.git
+    $ cd angularjs-starter-app
+
+Install the dependencies.
+
+     $npm install
+
+### Run the application
+
 There is a simple server to use the project, run with node.  
-The server holds some simple user data and can create, edit and delete, there is no persistence.
+The server holds some simple user data and can create, edit and delete them, there is no persistence.
 
     $ node server.js  
-    Server listen on port 3000 browse http://127.0.0.1:3000
+    Server listen on port 3000 browse at http://127.0.0.1:3000
 
 ## Grunt
 
-As default there are two tasks defined, jshint and jasmine.
+As default there are three tasks defined, jshint, jasmine and yuidoc.
 
     $ grunt
 

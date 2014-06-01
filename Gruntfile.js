@@ -33,16 +33,35 @@ module.exports = function(grunt) {
                     ],
                     template: require('grunt-template-jasmine-istanbul'),
                     templateOptions: {
-                        coverage: 'coverage.json',
+                        coverage: 'coverage/coverage.json',
                         report: [
                             {
                                 type: 'html',
                                 options: {
                                     dir: 'coverage/html'
                                 }
-                            }                      
+                            },
+                            {
+                                type: 'text-summary'
+                            }
                         ]
                     }
+                }
+            }
+        },
+        /**
+         * create api documentation
+         */
+        yuidoc: {
+            compile: {
+                name: '<%= pkg.name %>',
+                description: '<%= pkg.description %>',
+                version: '<%= pkg.version %>',
+                url: '<%= pkg.repository %>',
+                options: { 
+                    paths: ['src/app/js/',
+                            'test/unit/'],
+                    outdir: 'docs/'
                 }
             }
         },
@@ -58,7 +77,8 @@ module.exports = function(grunt) {
     
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-jasmine');
+    grunt.loadNpmTasks('grunt-contrib-yuidoc');
     grunt.loadNpmTasks('grunt-karma');
 
-    grunt.registerTask('default', ['jshint', 'jasmine']);
+    grunt.registerTask('default', ['jshint', 'jasmine', 'yuidoc']);
 };

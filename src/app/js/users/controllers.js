@@ -1,28 +1,25 @@
 /**
- * @module Project controller
+ * @module Controller
  **/
 'use strict';
 angular.module('app.controllers')
 /**
- * List controller
- * list all applications
+ * User list controller
+ * list all users
  *
- * @class ListCtrl
+ * @class UserListCtrl
  * @constructor
  * @param {Object} $scope
- * @param {Object} $routeParams
  * @param {Object} $location
  * @param {Object} User
  */ 
-.controller('UsersCtrl', ['$scope', '$routeParams', '$location', 'User', function($scope, $routeParams, $location, User) {
-    $scope.pageSize = 6;
-    $scope.currentPage = parseInt($routeParams.currentPage, 10) || 0;
+.controller('UserListCtrl', ['$scope', '$routeParams', '$location', 'User', function($scope, $routeParams, $location, User) {
     User.get().success(function (response) {
         $scope.users = response;
-        $scope.numberOfPages = function numberOfPages() {
-            return Math.ceil($scope.users.length / $scope.pageSize);
-        };
     });
+    /**
+     * @method edit
+     */
     $scope.edit = function edit(user) {
         $location.path('/edituser/' + user._id);
     };
@@ -31,9 +28,9 @@ angular.module('app.controllers')
     $scope.orderProp = 'email';
 }])
 /**
- * Detail controller
+ * User detail controller
  *
- * @class DetailCtrl
+ * @class UserDetailCtrl
  * @constructor
  * @param {Object} $scope
  * @param {Object} $routeParams
@@ -41,13 +38,18 @@ angular.module('app.controllers')
  * @param {Object} User
  */
 .controller('UserDetailCtrl', ['$scope', '$routeParams', '$location', 'User', function($scope, $routeParams, $location, User) {
-    $scope.currentPage = $routeParams.currentPage;
     User.get($routeParams.userId).success(function (response) {
         $scope.user = response;
     });
+    /**
+     * @method edit
+     */
     $scope.edit = function edit(user) {
         $location.path('/edituser/' + user._id);
     };
+    /**
+     * @method del
+     */
     $scope.del = function del(user) {
         User.del(user._id).success(function (response) {
             $location.path('/users');
@@ -55,17 +57,17 @@ angular.module('app.controllers')
     };
 }])
 /**
- * Add controller
- * apps a new application
+ * User add controller
+ * add a new user
  *
- * @class AddCtrl
+ * @class UserAddCtrl
  * @constructor
  * @param {Object} $scope
- * @param {Object} $http
  * @param {Object} $location
  * @param {Object} $filter
+ * @param {Object} User
  */
-.controller('UserAddCtrl', ['$scope', '$http', '$location', '$filter', 'User', function($scope, $http, $location, $filter, User) {
+.controller('UserAddCtrl', ['$scope', '$location', '$filter', 'User', function($scope, $location, $filter, User) {
     /**
      * submit the form
      *
@@ -81,18 +83,17 @@ angular.module('app.controllers')
     };
 }])
 /**
- * Edit controller
- * edit a application
+ * User edit controller
+ * edit a user
  *
- * @class EditCtrl
+ * @class UserEditCtrl
  * @constructor
  * @param {Object} $scope
  * @param {Object} $routeParams
- * @param {Object} $http
  * @param {Object} $filter
- * @param {Object} Application
+ * @param {Object} User
  */
-.controller('UserEditCtrl', ['$scope', '$routeParams', '$http', '$location', '$filter', 'User', function($scope, $routeParams, $http, $location, $filter, User) {
+.controller('UserEditCtrl', ['$scope', '$routeParams', '$location', '$filter', 'User', function($scope, $routeParams, $location, $filter, User) {
     User.get($routeParams.userId).success(function(response) {
         $scope.user = response;
     });

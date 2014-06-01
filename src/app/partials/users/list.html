@@ -15,7 +15,7 @@
             <th>Gender</th>
             <th style="width:8%">&nbsp;</th>
         </tr>
-        <tr data-ng-repeat="user in users | filter:query | limitTo:pageSize | orderBy:orderProp">
+        <tr data-ng-repeat="user in users | filter:query | orderBy:orderProp">
             <td><a href="#/users/{{user._id}}">{{user.email}}</a></td>
             <td>{{user.age}}</td>
             <td>{{user.gender}}</td>

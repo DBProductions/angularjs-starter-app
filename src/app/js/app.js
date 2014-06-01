@@ -14,7 +14,7 @@ config(['$routeProvider', function($routeProvider) {
     /* users */
     $routeProvider.when('/users', {
         templateUrl: 'src/app/partials/users/list.html', 
-        controller: 'UsersCtrl'
+        controller: 'UserListCtrl'
     });
     $routeProvider.when('/users/:userId', {
         templateUrl: 'src/app/partials/users/detail.html', 
