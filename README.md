@@ -2,15 +2,16 @@
 
 A simple AngualrJS application, ready to extend.  
 
-jQuery v1.11.0  
-jQuery UI v1.10.4  
-Twitter Bootstrap v3.1.1  
-Font Awesome v4.0.3  
-Angular v1.2.15  
+The following libaries or frameworks are included:
+* jQuery v1.11.0  
+* jQuery UI v1.10.4  
+* Twitter Bootstrap v3.1.1  
+* Font Awesome v4.0.3  
+* Angular v1.2.15  
 
 ## Getting started
 
-To start you can clone the angular-starter-app repository, install the dependencies and start the server.
+Clone the angular-starter-app repository, install the dependencies and start the server.
 
 ### Prerequisites
 
@@ -29,7 +30,7 @@ Install the dependencies.
 
 ### Run the application
 
-There is a simple server to use the project, run with node.  
+There is a simple server to use the project, run it with node.  
 The server holds some simple user data and can create, edit and delete them, there is no persistence.
 
     $ node server.js  
@@ -40,6 +41,8 @@ The server holds some simple user data and can create, edit and delete them, the
 As default there are three tasks defined, jshint, jasmine and yuidoc.
 
     $ grunt
+
+Grunt creates an API documentation and a code coverage report.
 
 ## Karma
 

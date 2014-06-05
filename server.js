@@ -14,30 +14,31 @@ var data = [
  * helper functions
  */
 function getDataEntry(data, id, type, update) {
-    for (var i = 0; i < data.length; i++) {    	
-    	if (data[i]._id == id) {
-    		if (type === 'get') {
+    for (var i = 0; i < data.length; i++) {
+        if (data[i]._id.toString() === id) {
+            if (type === 'get') {
                 return data[i];
             } else if (type === 'put') {
-            	data[i] = update;
-    		} else if (type === 'delete') {
-    			data.splice(i, 1);
-    		}
-    	}
+                data[i] = update;
+            } else if (type === 'delete') {
+                data.splice(i, 1);
+            }
+        }
     }
+}
+function getHighest(array) {
+    var max = {};
+    for (var i = 0; i < array.length; i++) {
+        if (array[i]._id > (max._id || 0)) {
+            max = array[i];
+        }
+    }
+    return max;
 }
 function setDataEntry(data, update) {
 	var curId = getHighest(data)._id;
 	var entry = {_id: curId+1, email: update.email, age: update.age, gender: update.gender};
     data.push(entry);
-}
-function getHighest(array) {
-    var max = {};
-    for (var i = 0; i < array.length; i++) {
-        if (array[i]._id > (max._id || 0))
-            max = array[i];
-    }
-    return max;
 }
 
 app.use(bodyParser());
@@ -56,7 +57,7 @@ app.get('/users', function(req, res) {
 });
 
 app.post('/users', function(req, res) {
-	setDataEntry(data, req.body)
+	setDataEntry(data, req.body);
 	res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify({}));
 });

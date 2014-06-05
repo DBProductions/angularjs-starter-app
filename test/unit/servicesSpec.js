@@ -1,3 +1,6 @@
+/**
+ * @module Test
+ */
 'use strict';
 /**
  *
