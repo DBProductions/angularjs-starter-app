@@ -10,7 +10,8 @@
     "test": "grunt --verbose",
     "start": "node server.js",
     "webdriver": "webdriver-manager start",
-    "karma": "karma start config/karma.conf.js"
+    "karma": "karma start config/karma.conf.js",
+    "protractor": "protractor config/protractor.conf.js"
   },
   "author": "dennis@dbproductions.de",
   "devDependencies": {

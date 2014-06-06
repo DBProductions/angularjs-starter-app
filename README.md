@@ -36,7 +36,7 @@ The server holds some simple user data and can create, edit and delete them, the
     $ node server.js  
     Server listen on port 3000 browse at http://127.0.0.1:3000
 
-NPM is also defined to run the server.
+NPM is also configured to run the server.
 
     $ npm start
 
@@ -52,7 +52,7 @@ Grunt creates an API documentation and a code coverage report.
 
     $ karma start config/karma.conf.js
 
-It is also defined as Grunt task.
+It is also configured as Grunt task.
 
     $ grunt karma
 
