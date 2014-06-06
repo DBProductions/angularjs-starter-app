@@ -36,6 +36,10 @@ The server holds some simple user data and can create, edit and delete them, the
     $ node server.js  
     Server listen on port 3000 browse at http://127.0.0.1:3000
 
+NPM is also defined to run the server.
+
+    $ npm start
+
 ## Grunt
 
 As default there are three tasks defined, jshint, jasmine and yuidoc.
@@ -45,6 +49,10 @@ As default there are three tasks defined, jshint, jasmine and yuidoc.
 Grunt creates an API documentation and a code coverage report.
 
 ## Karma
+
+    $ karma start config/karma.conf.js
+
+It is also defined as Grunt task.
 
     $ grunt karma
 
@@ -57,5 +65,9 @@ Start the server and a standalone selenium server before you can run the end to 
 Run end to end tests with protractor.
 
     $ protractor config/protractor.conf.js
+
+## Travis CI
+
+The continuous integration service is monitoring this repository: [Link](https://travis-ci.org/DBProductions/angularjs-starter-app)
 
 ![Build Status](https://travis-ci.org/DBProductions/angularjs-starter-app.svg?branch=master)
