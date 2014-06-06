@@ -16,4 +16,5 @@ before_script:
   - sleep 1
 
 script:
+  - npm run grunt
   - npm run protractor

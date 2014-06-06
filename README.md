@@ -30,17 +30,21 @@ Install the dependencies.
 
 ### Run the application
 
-There is a simple server to use the project, run it with node.  
-The server holds some simple user data and can create, edit and delete them, there is no persistence.
+There is a simple server to use the project.  
+The server holds some user data and can create user entries, edit and delete them.  
+There is no persistence, all the time the server gets restared the old state is gone.
 
-    $ node server.js  
-    Server listen on port 3000 browse at http://127.0.0.1:3000
+    $ node server.js
 
 NPM is also configured to run the server.
 
     $ npm start
 
-## Grunt
+## Testing
+
+The project contains configuration files for Grunt, Karma and Protractor.
+
+### Grunt
 
 As default there are three tasks defined, jshint, jasmine and yuidoc.
 
@@ -48,7 +52,7 @@ As default there are three tasks defined, jshint, jasmine and yuidoc.
 
 Grunt creates an API documentation and a code coverage report.
 
-## Karma
+### Karma
 
     $ karma start config/karma.conf.js
 
@@ -56,7 +60,7 @@ It is also configured as Grunt task.
 
     $ grunt karma
 
-## Protractor
+### Protractor
 
 Start the server and a standalone selenium server before you can run the end to end tests.
 
