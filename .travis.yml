@@ -5,6 +5,7 @@ node_js:
 before_install:
   - npm install -g grunt-cli
   - npm install -g protractor
+  - webdriver-manager update --standalone
 
 before_script:
   - "export DISPLAY=:99.0"
