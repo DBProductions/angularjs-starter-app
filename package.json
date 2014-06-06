@@ -7,7 +7,9 @@
     "test": "test"
   },
   "scripts": {
-    "test": "grunt --verbose"
+    "test": "grunt --verbose",
+    "start": "node server.js",
+    "webdriver": "webdriver-manager start"
   },
   "author": "dennis@dbproductions.de",
   "devDependencies": {

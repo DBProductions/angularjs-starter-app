@@ -57,3 +57,5 @@ Start the server and a standalone selenium server before you can run the end to 
 Run end to end tests with protractor.
 
     $ protractor config/protractor.conf.js
+
+![Build Status](https://travis-ci.org/DBProductions/angularjs-starter-app.svg?branch=master)
