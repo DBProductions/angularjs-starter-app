@@ -1,6 +1,9 @@
+/**
+ * @module Test
+ */
 'use strict';
 /**
- *
+ * @class directivesSpec
  */
 describe('Directives', function() {          
     beforeEach(module('app.directives'));

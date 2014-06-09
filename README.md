@@ -4,7 +4,6 @@ A simple AngualrJS application, ready to extend.
 
 The following libaries or frameworks are included:
 * jQuery v1.11.0  
-* jQuery UI v1.10.4  
 * Twitter Bootstrap v3.1.1  
 * Font Awesome v4.0.3  
 * Angular v1.2.15  

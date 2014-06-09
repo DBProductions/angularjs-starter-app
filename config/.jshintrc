@@ -12,6 +12,7 @@
     "undef": true,
     "boss": true,
     "globals" : {
+        "jasmine": false,
         "it" : false,
         "xit" : false,
         "describe" : false,

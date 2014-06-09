@@ -3,7 +3,7 @@
  */
 'use strict';
 /**
- *
+ * @class routesSpec
  */
 describe('Testing routes', function() {
     beforeEach(module('app'));

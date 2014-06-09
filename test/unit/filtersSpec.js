@@ -1,10 +1,12 @@
+/**
+ * @module Test
+ */
 'use strict';
 /**
- *
+ * @class filtersSpec
  */
 describe('Filters', function() {          
     beforeEach(module('app.filters'));
-    
     /**
      *
      */

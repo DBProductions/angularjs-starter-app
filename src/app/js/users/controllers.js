@@ -14,7 +14,7 @@ angular.module('app.controllers')
  * @param {Object} User
  */ 
 .controller('UserListCtrl', ['$scope', '$routeParams', '$location', 'User', function($scope, $routeParams, $location, User) {
-    User.get().success(function (response) {
+    User.get().then(function (response) {
         $scope.users = response;
     });
     /**
@@ -38,7 +38,7 @@ angular.module('app.controllers')
  * @param {Object} User
  */
 .controller('UserDetailCtrl', ['$scope', '$routeParams', '$location', 'User', function($scope, $routeParams, $location, User) {
-    User.get($routeParams.userId).success(function (response) {
+    User.get($routeParams.userId).then(function (response) {
         $scope.user = response;
     });
     /**
@@ -51,7 +51,7 @@ angular.module('app.controllers')
      * @method del
      */
     $scope.del = function del(user) {
-        User.del(user._id).success(function (response) {
+        User.del(user._id).then(function (response) {
             $location.path('/users');
         });
     };
@@ -75,7 +75,7 @@ angular.module('app.controllers')
      */
     $scope.submitForm = function submitForm() {
         if ($scope.user) {            
-            User.post($scope.user).success(function(response) {
+            User.post($scope.user).then(function(response) {
                 $scope.user = {};
                 $location.path('/users');
             });
@@ -94,7 +94,7 @@ angular.module('app.controllers')
  * @param {Object} User
  */
 .controller('UserEditCtrl', ['$scope', '$routeParams', '$location', '$filter', 'User', function($scope, $routeParams, $location, $filter, User) {
-    User.get($routeParams.userId).success(function(response) {
+    User.get($routeParams.userId).then(function(response) {
         $scope.user = response;
     });
     /**
@@ -104,7 +104,7 @@ angular.module('app.controllers')
      */
     $scope.submitForm = function submitForm() {
         if ($scope.user) {
-            User.put($routeParams.userId, $scope.user).success(function(response) {
+            User.put($routeParams.userId, $scope.user).then(function(response) {
                 $scope.user = {};
                 $location.path('/users/' + $routeParams.userId);
             });
