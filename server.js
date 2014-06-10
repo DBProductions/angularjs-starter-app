@@ -6,9 +6,9 @@ var app = express();
  * simple example data
  */
 var data = [
-    {"_id": 1, "email": "a@abc.com", "age": 22, "gender": "female"},
-    {"_id": 2, "email": "b@def.com", "age": 24, "gender": "male"},
-    {"_id": 3, "email": "c@ghi.com", "age": 23, "gender": "female"}
+    {"_id": 1, "email": "gaby@email.com", "age": 22, "gender": "female"},
+    {"_id": 2, "email": "peter@email.com", "age": 24, "gender": "male"},
+    {"_id": 3, "email": "caroline@email.com", "age": 23, "gender": "female"}
 ];
 /**
  * helper functions
@@ -36,8 +36,8 @@ function getHighest(array) {
     return max;
 }
 function setDataEntry(data, update) {
-	var curId = getHighest(data)._id;
-	var entry = {_id: curId+1, email: update.email, age: update.age, gender: update.gender};
+    var curId = getHighest(data)._id;
+    var entry = {_id: curId+1, email: update.email, age: update.age, gender: update.gender};
     data.push(entry);
 }
 
@@ -52,30 +52,30 @@ app.get('/', function(req, res) {
 });
 
 app.get('/users', function(req, res) {
-	res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify(data));
 });
 
 app.post('/users', function(req, res) {
-	setDataEntry(data, req.body);
-	res.setHeader('Content-Type', 'application/json');
+    setDataEntry(data, req.body);
+    res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify({}));
 });
 
 app.get('/users/:_id', function(req, res) {
-	var entry = getDataEntry(data, req.params._id, 'get');
+    var entry = getDataEntry(data, req.params._id, 'get');
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify(entry));
 });
 
 app.put('/users/:_id', function(req, res) {
-	var entry = getDataEntry(data, req.params._id, 'put', req.body);
+    var entry = getDataEntry(data, req.params._id, 'put', req.body);
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify(entry));
 });
 
-app.delete('/users/:_id', function(req, res) {	
-	getDataEntry(data, req.params._id, 'delete');
+app.delete('/users/:_id', function(req, res) {  
+    getDataEntry(data, req.params._id, 'delete');
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify({}));
 });

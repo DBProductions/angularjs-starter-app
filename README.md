@@ -1,6 +1,8 @@
 # AngularJS starter app
 
 A simple AngualrJS application, ready to extend.  
+It has a simple CRUD (Create, Read, Update, Delete) functionality.  
+The server provide some simple user data to manipulate.
 
 The following libaries or frameworks are included:
 * jQuery v1.11.0  

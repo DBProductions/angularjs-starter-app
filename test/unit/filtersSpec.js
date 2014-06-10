@@ -8,7 +8,7 @@
 describe('Filters', function() {          
     beforeEach(module('app.filters'));
     /**
-     *
+     * test common interpolate method
      */
     describe('interpolate', function() {
         beforeEach(module(function($provide) {

@@ -8,7 +8,7 @@
 describe('Services', function() {          
     beforeEach(module('app.services'));
     /**
-     *
+     * common service get tested here
      */
     describe('Common service', function() {
         it('should have version property', inject(function(version) {
@@ -16,7 +16,7 @@ describe('Services', function() {
         }));
     });
     /**
-     *
+     * user specific service get tested here
      */
     describe('User service', function() {
         var $httpBackend;
@@ -36,7 +36,9 @@ describe('Services', function() {
             expect(typeof User.put).toEqual('function');
             expect(typeof User.del).toEqual('function');
         }));      
-
+        /**
+         * test get method of service when be successful and have an error
+         */
         it('should have get method and work as expected when http response is successful', inject(function(User) {
             $httpBackend.expect('GET', '/users').respond([{"_id": 1, "email": "a@abc.com"},{"_id": 2, "email": "b@def.com"}]);
             User.get().then(function (response) {
@@ -52,7 +54,9 @@ describe('Services', function() {
             });
             $httpBackend.flush();
         }));
-
+        /**
+         * test get method of service with user id when be successful and have an error
+         */
         it('should have get method and work as expected when http response is successful', inject(function(User) {
             $httpBackend.expect('GET', '/users/1').respond({"_id": 1, "email": "a@abc.com"});
             User.get(1).then(function (response) {
@@ -68,7 +72,9 @@ describe('Services', function() {
             });
             $httpBackend.flush();
         }));
-
+        /**
+         * test post method of service when be successful and have an error
+         */
         it('should have post method and work as expected when http response is successful', inject(function(User) {
             $httpBackend.expect('POST', '/users').respond(true);
             User.post({"_id": 2, "email": "b@def.com"}).then(function (response) {
@@ -84,7 +90,9 @@ describe('Services', function() {
             });
             $httpBackend.flush();
         }));
-
+        /**
+         * test put method of service with user id when be successful and have an error
+         */ 
         it('should have put method and work as expected when http response is successful', inject(function(User) {
             $httpBackend.expect('PUT', '/users/1').respond(true);
             User.put(1, {"_id": 2, "email": "b@def.com"}).then(function (response) {
@@ -100,7 +108,9 @@ describe('Services', function() {
             });
             $httpBackend.flush();
         }));
-
+        /**
+         * test del method of service with user id when be successful and have an error
+         */ 
         it('should have delete method and work as expected when http response is successful', inject(function(User) {
             $httpBackend.expect('DELETE', '/users/1').respond(true);
             User.del(1).then(function (response) {

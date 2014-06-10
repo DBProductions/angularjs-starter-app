@@ -14,7 +14,7 @@ describe('Controllers', function() {
         $scope = $rootScope.$new();
     }));
     /**
-     *
+     * test the common controllers
      */
     describe('Home Controller', function() {
         var controller;
@@ -27,7 +27,7 @@ describe('Controllers', function() {
         });
     });
     /**
-     *
+     * test the user specific controllers
      */
     describe('Users Controllers', function() {   
         var location, routeParams, succeedPromise, userService;
