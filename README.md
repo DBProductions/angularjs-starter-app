@@ -76,3 +76,5 @@ Run end to end tests with protractor.
 The continuous integration service is monitoring this repository: [Link](https://travis-ci.org/DBProductions/angularjs-starter-app)
 
 ![Build Status](https://travis-ci.org/DBProductions/angularjs-starter-app.svg?branch=master)
+
+[![Coverage Status](https://coveralls.io/repos/DBProductions/angularjs-starter-app/badge.png)](https://coveralls.io/r/DBProductions/angularjs-starter-app)
