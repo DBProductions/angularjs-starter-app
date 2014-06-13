@@ -73,8 +73,8 @@ Run end to end tests with protractor.
 
 ## Travis CI and Coveralls
 
-The continuous integration service Travis CI is monitoring this repository: [Link](https://travis-ci.org/DBProductions/angularjs-starter-app)
+The continuous integration service Travis CI is monitoring this repository: [Link](https://travis-ci.org/DBProductions/angularjs-starter-app)  
 The web service Coveralls is tracking code coverage for this repository: [Link](https://coveralls.io/r/DBProductions/angularjs-starter-app)
 
-![Build Status](https://travis-ci.org/DBProductions/angularjs-starter-app.svg?branch=master)
+![Build Status](https://travis-ci.org/DBProductions/angularjs-starter-app.svg?branch=master) 
 [![Coverage Status](https://coveralls.io/repos/DBProductions/angularjs-starter-app/badge.png)](https://coveralls.io/r/DBProductions/angularjs-starter-app)
