@@ -42,6 +42,12 @@ module.exports = function(grunt) {
                                 }
                             },
                             {
+                                type: 'lcovonly',
+                                options: {
+                                    dir: 'coverage'
+                                }
+                            },
+                            {
                                 type: 'text-summary'
                             }
                         ]
