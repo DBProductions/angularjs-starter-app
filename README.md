@@ -77,4 +77,8 @@ The continuous integration service is monitoring this repository: [Link](https:/
 
 ![Build Status](https://travis-ci.org/DBProductions/angularjs-starter-app.svg?branch=master)
 
+## COVERALLS
+
+The web service for tracking code coverage for this repository: [Link](https://coveralls.io/r/DBProductions/angularjs-starter-app)
+
 [![Coverage Status](https://coveralls.io/repos/DBProductions/angularjs-starter-app/badge.png)](https://coveralls.io/r/DBProductions/angularjs-starter-app)
