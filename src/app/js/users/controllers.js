@@ -1,6 +1,6 @@
 /**
  * @module Controller
- **/
+ */
 'use strict';
 angular.module('app.controllers')
 /**
@@ -16,6 +16,8 @@ angular.module('app.controllers')
 .controller('UserListCtrl', ['$scope', '$routeParams', '$location', 'User', function($scope, $routeParams, $location, User) {
     User.get().then(function (response) {
         $scope.users = response;
+    }, function (data) {
+        $scope.users = [];
     });
     /**
      * @method edit

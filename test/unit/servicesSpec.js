@@ -49,8 +49,8 @@ describe('Services', function() {
 
         it('should have get method and work as expected when http response is wrong', inject(function(User) {
             $httpBackend.expect('GET', '/users').respond(500);
-            User.get().then(function (response) {}, function(msg){
-                expect(msg).toEqual('service get failed!');
+            User.get().then(function (response) {}, function(error) {
+                expect(error.status).toEqual(500);
             });
             $httpBackend.flush();
         }));
@@ -67,8 +67,8 @@ describe('Services', function() {
 
         it('should have get method and work as expected when http response is wrong', inject(function(User) {
             $httpBackend.expect('GET', '/users/1').respond(500);
-            User.get(1).then(function (response) {}, function(msg){
-                expect(msg).toEqual('service get failed!');
+            User.get(1).then(function (response) {}, function(error) {
+                expect(error.status).toEqual(500);
             });
             $httpBackend.flush();
         }));
@@ -85,8 +85,8 @@ describe('Services', function() {
 
         it('should have post method and work as expected when http response is wrong', inject(function(User) {
             $httpBackend.expect('POST', '/users').respond(500);
-            User.post({"_id": 2, "email": "b@def.com"}).then(function (response) {}, function(msg){
-                expect(msg).toEqual('service post failed!');
+            User.post({"_id": 2, "email": "b@def.com"}).then(function (response) {}, function(error) {
+                expect(error.status).toEqual(500);
             });
             $httpBackend.flush();
         }));
@@ -103,8 +103,8 @@ describe('Services', function() {
 
         it('should have put method and work as expected when http response is wrong', inject(function(User) {
             $httpBackend.expect('PUT', '/users/1').respond(500);
-            User.put(1, {"_id": 2, "email": "b@def.com"}).then(function (response) {}, function(msg){
-                expect(msg).toEqual('service put failed!');
+            User.put(1, {"_id": 2, "email": "b@def.com"}).then(function (response) {}, function(error) {
+                expect(error.status).toEqual(500);
             });
             $httpBackend.flush();
         }));
@@ -121,8 +121,8 @@ describe('Services', function() {
 
         it('should have delete method and work as expected when http response is wrong', inject(function(User) {
             $httpBackend.expect('DELETE', '/users/1').respond(500);
-            User.del(1).then(function (response) {}, function(msg){
-                expect(msg).toEqual('service delete failed!');
+            User.del(1).then(function (response) {}, function(error) {
+                expect(error.status).toEqual(500);
             });
             $httpBackend.flush();
         }));

@@ -1,6 +1,6 @@
 <div class="row">
     <form name="frmInsert" data-ng-controller="UserAddCtrl" novalidate>
-        <div class="col-md-3 col-md-offset-1">
+        <div class="col-md-3">
             <div class="form-group">
             	<label>Email:</label>
                 <input type="email" class="form-control" name="email" placeholder="Email" data-ng-model="user.email" required="required">
@@ -8,7 +8,8 @@
             </div>
             <div class="form-group">
                 <label>Age:</label>
-                <input type="text" class="form-control" name="age" placeholder="Age" data-ng-model="user.age" required="required">
+                <input type="number" class="form-control" name="age" placeholder="Age" data-ng-model="user.age" required="required">
+                <p class="text-warning" data-ng-show="frmEdit.age.$dirty && frmEdit.age.$error.email">Is required.</p>
             </div>
             <div class="form-group">
                 <label>Gender:</label><br>                

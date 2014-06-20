@@ -13,7 +13,7 @@ angular.module('app.services')
  * @return {Object} userService
  */
 .factory('User', ['$http', '$q', function($http, $q) {
-	var userService = {
+	return {
         /**
          * @method get
          * @param {String} id
@@ -25,10 +25,10 @@ angular.module('app.services')
             if (id) {
                 url += '/' + id;
             }
-            var promise = $http.get(url).success(function(response) {
+            $http.get(url).success(function(response) {
                 deferred.resolve(response);
-            }).error(function(err){
-                deferred.reject("service get failed!");
+            }).error(function(data, status, headers, config) {
+                deferred.reject({data: data, status: status, headers: headers, config: config});
             });
             return deferred.promise;
         },
@@ -39,10 +39,10 @@ angular.module('app.services')
          */
         post: function post(data) {
             var deferred = $q.defer();
-            var promise = $http.post('/users', data).success(function(response) {
+            $http.post('/users', data).success(function(response) {
                 deferred.resolve(response);
-            }).error(function(err){
-                deferred.reject("service post failed!");
+            }).error(function(data, status, headers, config) {
+                deferred.reject({data: data, status: status, headers: headers, config: config});
             });
             return deferred.promise;
         },
@@ -54,10 +54,10 @@ angular.module('app.services')
          */
         put: function put(id, data) {
             var deferred = $q.defer();
-            var promise = $http.put('/users/' + id, data).success(function(response) {
+            $http.put('/users/' + id, data).success(function(response) {
                 deferred.resolve(response);
-            }).error(function(err){
-                deferred.reject("service put failed!");
+            }).error(function(data, status, headers, config) {
+                deferred.reject({data: data, status: status, headers: headers, config: config});
             });
             return deferred.promise;
         },
@@ -68,13 +68,12 @@ angular.module('app.services')
          */
         del: function del(id) {
             var deferred = $q.defer();
-            var promise = $http.delete('/users/' + id).success(function(response) {
+            $http.delete('/users/' + id).success(function(response) {
                 deferred.resolve(response);
-            }).error(function(err){
-                deferred.reject("service delete failed!");
+            }).error(function(data, status, headers, config) {
+                deferred.reject({data: data, status: status, headers: headers, config: config});
             });
             return deferred.promise;
         }
 	};
-    return userService;
 }]);
