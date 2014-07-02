@@ -7,8 +7,8 @@ The server provide some simple user data to manipulate.
 The following libaries or frameworks are included:
 * jQuery v1.11.0  
 * Twitter Bootstrap v3.1.1  
-* Font Awesome v4.0.3  
-* Angular v1.2.15  
+* Font Awesome v4.1.0  
+* Angular v1.2.19  
 
 ## Getting started
 
