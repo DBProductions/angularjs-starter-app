@@ -1,11 +1,10 @@
 # AngularJS starter app
 
 A simple AngualrJS application, ready to extend.  
-It has a simple CRUD (Create, Read, Update, Delete) functionality on a list and detail view.  
+It has a simple CRUD (Create, Read, Update, Delete) functionality shown on a list and detail view.  
 The server provide some simple user data to manipulate.
 
-This is not a full blown project what solves all your problems.
-It exists to give an example as a working and full tested project.
+It isn't a full featured project what solves all your problems.
 
 The following libaries or frameworks are included:
 * jQuery v1.11.0  
