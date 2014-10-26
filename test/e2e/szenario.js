@@ -5,14 +5,14 @@ describe('angularjs project', function() {
     /**
      *
      */
-	var ptor;
-	beforeEach(function() {
+    var ptor;
+    beforeEach(function() {
         ptor = protractor.getInstance();
     });
     /**
      *
      */
-	it('should add a new user', function() {
+    it('should add a new user', function() {
         browser.get('http://localhost:3000/#/insertuser');
         var email = element(by.model('user.email'));
         var age = element(by.model('user.age'));
@@ -26,7 +26,7 @@ describe('angularjs project', function() {
 
         expect(ptor.getCurrentUrl()).toEqual('http://localhost:3000/#/users');
         expect(users.count()).toEqual(4);
-	});
+    });
     /**
      *
      */

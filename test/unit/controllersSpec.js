@@ -6,7 +6,7 @@
  * @class controllersSpec
  */ 
 describe('Controllers', function() {
-	beforeEach(module('app.services'));
+    beforeEach(module('app.services'));
     beforeEach(module('app.controllers'));
 
     var $scope;

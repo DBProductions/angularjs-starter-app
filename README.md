@@ -80,3 +80,6 @@ The web service Coveralls is tracking code coverage for this repository: [Link](
 
 ![Build Status](https://travis-ci.org/DBProductions/angularjs-starter-app.svg?branch=master) 
 [![Coverage Status](https://coveralls.io/repos/DBProductions/angularjs-starter-app/badge.png)](https://coveralls.io/r/DBProductions/angularjs-starter-app)
+
+## Feedback
+Star this repo if you found it useful. Use the github issue tracker to give feedback on this repo.

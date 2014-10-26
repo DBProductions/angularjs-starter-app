@@ -21,6 +21,7 @@ angular.module('app.controllers')
     });
     /**
      * @method edit
+     * @param {Object} user
      */
     $scope.edit = function edit(user) {
         $location.path('/edituser/' + user._id);
@@ -45,12 +46,14 @@ angular.module('app.controllers')
     });
     /**
      * @method edit
+     * @param {Object} user
      */
     $scope.edit = function edit(user) {
         $location.path('/edituser/' + user._id);
     };
     /**
      * @method del
+     * @param {Object} user
      */
     $scope.del = function del(user) {
         User.del(user._id).then(function (response) {

@@ -13,7 +13,7 @@ angular.module('app.services')
  * @return {Object} userService
  */
 .factory('User', ['$http', '$q', function($http, $q) {
-	return {
+    return {
         /**
          * @method get
          * @param {String} id
@@ -75,5 +75,5 @@ angular.module('app.services')
             });
             return deferred.promise;
         }
-	};
+    };
 }]);
