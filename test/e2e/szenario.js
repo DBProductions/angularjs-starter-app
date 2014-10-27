@@ -1,3 +1,4 @@
+var fs = require('fs');
 /**
  *
  */
@@ -8,6 +9,21 @@ describe('angularjs project', function() {
     var ptor;
     beforeEach(function() {
         ptor = protractor.getInstance();
+    });
+    afterEach(function () {
+        var currentSpec = jasmine.getEnv().currentSpec,
+            passed = currentSpec.results().passed();
+
+        browser.takeScreenshot().then(function (png) {
+            browser.getCapabilities().then(function (capabilities) {
+                var browserName = capabilities.caps_.browserName,
+                    passFail = (passed) ? 'pass' : 'FAIL',
+                    filename = browserName + '_' + passFail + '-' + currentSpec.description.split(" ").join("_") + '.png';
+                var stream = fs.createWriteStream('test/e2e/screenshots/' + filename);
+                stream.write(new Buffer(png, 'base64'));
+                stream.end();
+            });
+        });
     });
     /**
      *
@@ -20,12 +36,12 @@ describe('angularjs project', function() {
 
         email.sendKeys('test@test.com');
         age.sendKeys('48');
-        insertBtn.click();
+        insertBtn.click().then(function() {
+            var users = element.all(by.repeater('user in users'));
 
-        var users = element.all(by.repeater('user in users'));
-
-        expect(ptor.getCurrentUrl()).toEqual('http://localhost:3000/#/users');
-        expect(users.count()).toEqual(4);
+            expect(ptor.getCurrentUrl()).toEqual('http://localhost:3000/#/users');
+            expect(users.count()).toEqual(4);
+        });
     });
     /**
      *
@@ -52,32 +68,33 @@ describe('angularjs project', function() {
 
         var editBtn = element(by.id('editBtn'));
 
-        editBtn.click();
+        editBtn.click().then(function() {
 
-        expect(ptor.getCurrentUrl()).toEqual('http://localhost:3000/#/edituser/4');
+            expect(ptor.getCurrentUrl()).toEqual('http://localhost:3000/#/edituser/4');
 
-        var email = element(by.model('user.email'));
-        var age = element(by.model('user.age'));
-        var editSendBtn = element(by.id('editBtn'));
+            var email = element(by.model('user.email'));
+            var age = element(by.model('user.age'));
+            var editSendBtn = element(by.id('editBtn'));
 
-        expect(email.isPresent()).toBe(true);
-        expect(age.isPresent()).toBe(true);
-        expect(email.getAttribute('value')).toEqual('test@test.com');
-        expect(age.getAttribute('value')).toEqual('48');
+            expect(email.isPresent()).toBe(true);
+            expect(age.isPresent()).toBe(true);
+            expect(email.getAttribute('value')).toEqual('test@test.com');
+            expect(age.getAttribute('value')).toEqual('48');
 
-        email.clear();
-        email.sendKeys('test@test.org');
-        age.clear();
-        age.sendKeys('42');
+            email.clear();
+            email.sendKeys('test@test.org');
+            age.clear();
+            age.sendKeys('42');
 
-        editSendBtn.click();
+            editSendBtn.click().then(function() {
+                expect(ptor.getCurrentUrl()).toEqual('http://localhost:3000/#/users/4');
 
-        expect(ptor.getCurrentUrl()).toEqual('http://localhost:3000/#/users/4');
-
-        var _user = element(by.binding('{{user.email}}'));
-        var _age = element(by.binding('{{user.age}}'));
-        expect(_user.getText()).toEqual('test@test.org');
-        expect(_age.getText()).toEqual('42');
+                var _user = element(by.binding('{{user.email}}'));
+                var _age = element(by.binding('{{user.age}}'));
+                expect(_user.getText()).toEqual('test@test.org');
+                expect(_age.getText()).toEqual('42');
+            });
+        });
     });
 
     /**
@@ -92,8 +109,8 @@ describe('angularjs project', function() {
         expect(user.getText()).toEqual('test@test.org');
         expect(age.getText()).toEqual('42');
 
-        deleteBtn.click();
-
-        expect(ptor.getCurrentUrl()).toEqual('http://localhost:3000/#/users');
+        deleteBtn.click().then(function() {
+            expect(ptor.getCurrentUrl()).toEqual('http://localhost:3000/#/users');
+        });
     });
 });

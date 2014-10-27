@@ -3,6 +3,10 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         /**
+         * clean directories
+         */
+        clean: ['test/e2e/screenshots/*'],
+        /**
          * jshint task
          */
         jshint: {
@@ -78,13 +82,33 @@ module.exports = function(grunt) {
             unit: {
                 configFile: 'config/karma.conf.js'
             }
-        }
+        },
+        /**
+         * protractor task
+         */
+        protractor: {
+            options: {
+                configFile: "node_modules/protractor/example/conf.js",
+                keepAlive: true,
+                noColor: false,
+                args: {}
+            },
+            all: {
+                options: {
+                    configFile: "config/protractor.conf.js",
+                    args: {}
+                }
+            }
+        },
     });
     
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-jasmine');
     grunt.loadNpmTasks('grunt-contrib-yuidoc');
     grunt.loadNpmTasks('grunt-karma');
+    grunt.loadNpmTasks('grunt-protractor-runner');
 
     grunt.registerTask('default', ['jshint', 'jasmine', 'yuidoc']);
+    grunt.registerTask('end2end', ['clean', 'protractor']);
 };

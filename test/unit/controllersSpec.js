@@ -3,6 +3,7 @@
  */
 'use strict';
 /**
+ * test the controllers
  * @class controllersSpec
  */ 
 describe('Controllers', function() {
@@ -15,6 +16,7 @@ describe('Controllers', function() {
     }));
     /**
      * test the common controllers
+     * @method commonControllersSpec
      */
     describe('Home Controller', function() {
         var controller;
@@ -28,6 +30,7 @@ describe('Controllers', function() {
     });
     /**
      * test the user specific controllers
+     * @method usersControllersSpec
      */
     describe('Users Controllers', function() {
         var location, routeParams, callSucceed, userService;

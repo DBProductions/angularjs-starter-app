@@ -5,6 +5,7 @@ It has a simple CRUD (Create, Read, Update, Delete) functionality shown on a lis
 The server provide some simple user data to manipulate.
 
 It isn't a full featured project what solves all your problems.
+The folder structure allow to seperate common and specific parts.
 
 The following libaries or frameworks are included:
 * jQuery v1.11.0  
@@ -72,6 +73,12 @@ Start the server and a standalone selenium server before you can run the end to 
 Run end to end tests with protractor.
 
     $ protractor config/protractor.conf.js
+
+It is also configured as Grunt task.
+
+    $ grunt end2end
+
+Protractor creates for every end to end test a screenshot (/test/e2e/screenshots/).
 
 ## Travis CI and Coveralls
 

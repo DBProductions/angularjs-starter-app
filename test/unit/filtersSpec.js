@@ -3,12 +3,14 @@
  */
 'use strict';
 /**
+ * test the filters
  * @class filtersSpec
  */
 describe('Filters', function() {          
     beforeEach(module('app.filters'));
     /**
      * test common interpolate method
+     * @method interpolateSpec
      */
     describe('interpolate', function() {
         beforeEach(module(function($provide) {

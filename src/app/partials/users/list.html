@@ -2,8 +2,11 @@
     <div class="col-md-3">
         <input type="text" class="form-control" placeholder="Search" data-ng-model="query[queryBy]">
     </div>
-    <div class="col-md-3 info-text">
+    <div class="col-md-5 info-text">
         There are <strong>{{(users|filter:query).length}}</strong> users<span data-ng-show="query.length"> matching &quot;{{query}}&quot;</span>.
+    </div>
+    <div class="col-md-4 text-right">
+        <a class="btn btn-default" href="#/insertuser"><i class="fa fa-user fa-fw"></i> Insert</a>
     </div>
 </div>
 <hr>

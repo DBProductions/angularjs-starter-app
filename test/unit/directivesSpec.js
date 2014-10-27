@@ -3,11 +3,16 @@
  */
 'use strict';
 /**
+ * test the directives
  * @class directivesSpec
  */
 describe('Directives', function() {          
     beforeEach(module('app.directives'));
 
+    /**
+     * test the appVersion directive
+     * @method app-versionSpec
+     */
     describe('app-version', function() {
         it('should print current version', function() {
             module(function($provide) {
