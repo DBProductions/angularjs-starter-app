@@ -5,6 +5,7 @@ It has a simple CRUD (Create, Read, Update, Delete) functionality shown on a lis
 The server provide some simple user data to manipulate.
 
 It isn't a full featured project what solves all your problems.  
+Doing the [Angular Tutorial](https://docs.angularjs.org/tutorial) before is a good choice.  
 
 The following libaries or frameworks are included:
 * jQuery v1.11.0  
@@ -18,7 +19,7 @@ Clone the angular-starter-app repository, install the dependencies and start the
 
 ### Prerequisites
 
-You must have git, node and npm installed.
+You must have git, node and npm installed.  
 
 ### Clone repository
 
