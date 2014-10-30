@@ -50,6 +50,8 @@ The project contains configuration files for Grunt, Karma and Protractor.
 
 ### Grunt
 
+[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+
 As default there are three tasks defined, jshint, jasmine and yuidoc.
 
     $ grunt
