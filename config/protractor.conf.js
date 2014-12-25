@@ -14,6 +14,7 @@ exports.config = {
 
     // Options to be passed to Jasmine-node.
     jasmineNodeOpts: {
+        isVerbose: true,
         showColors: true, // Use colors in the command line report.
     }
 };

@@ -1,8 +1,6 @@
 var fs = require('fs');
-/**
- *
- */
-describe('angularjs project', function() {
+
+describe('angularjs-starter-app end to end testing', function() {
     /**
      *
      */
@@ -35,7 +33,10 @@ describe('angularjs project', function() {
         var insertBtn = element(by.id('insertBtn'));
 
         email.sendKeys('test@test.com');
-        age.sendKeys('48');
+        ptor.findElements(protractor.By.model('user.gender')).then(function(models){
+            models[0].click();
+        });
+        age.sendKeys('48');        
         insertBtn.click().then(function() {
             var users = element.all(by.repeater('user in users'));
 
@@ -53,11 +54,13 @@ describe('angularjs project', function() {
         var deleteBtn = element(by.id('deleteBtn'));
         var user = element(by.binding('{{user.email}}'));
         var age = element(by.binding('{{user.age}}'));
+        var gender = element(by.binding('{{user.gender}}'));
 
         expect(editBtn.isPresent()).toBe(true);
         expect(deleteBtn.isPresent()).toBe(true);
         expect(user.getText()).toEqual('test@test.com');
         expect(age.getText()).toEqual('48');
+        expect(gender.getText()).toEqual('female');
     });
 
     /**
@@ -86,6 +89,10 @@ describe('angularjs project', function() {
             age.clear();
             age.sendKeys('42');
 
+            ptor.findElements(protractor.By.model('user.gender')).then(function(models){
+                expect(models[0].getAttribute('value')).toEqual('female');
+            });
+
             editSendBtn.click().then(function() {
                 expect(ptor.getCurrentUrl()).toEqual('http://localhost:3000/#/users/4');
 
@@ -105,9 +112,11 @@ describe('angularjs project', function() {
         var deleteBtn = element(by.id('deleteBtn'));
         var user = element(by.binding('{{user.email}}'));
         var age = element(by.binding('{{user.age}}'));
+        var gender = element(by.binding('{{user.gender}}'));
 
         expect(user.getText()).toEqual('test@test.org');
         expect(age.getText()).toEqual('42');
+        expect(gender.getText()).toEqual('female');
 
         deleteBtn.click().then(function() {
             expect(ptor.getCurrentUrl()).toEqual('http://localhost:3000/#/users');

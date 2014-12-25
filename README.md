@@ -8,10 +8,10 @@ It isn't a full featured project what solves all your problems.
 Doing the [Angular Tutorial](https://docs.angularjs.org/tutorial) before is a good choice.  
 
 The following libaries or frameworks are included:
-* jQuery v1.11.0  
-* Twitter Bootstrap v3.2.0  
-* Font Awesome v4.1.0  
-* Angular v1.2.19  
+* jQuery v1.11.2  
+* Twitter Bootstrap v3.3.1  
+* Font Awesome v4.2.0  
+* Angular v1.2.28  
 
 ## Getting started
 

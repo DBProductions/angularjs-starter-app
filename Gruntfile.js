@@ -28,11 +28,11 @@ module.exports = function(grunt) {
                 options: {
                     specs: 'test/unit/**/*.js',
                     vendor: [
-                        'src/lib/jquery-1.11.0.min.js',
+                        'src/lib/jquery-1.11.2.min.js',
                         'src/lib/bootstrap.min.js',
-                        'src/lib/angular/angular.js',
-                        'src/lib/angular-route/angular-route.js',
-                        'src/lib/angular-resource/angular-resource.js',
+                        'src/lib/angular.min.js',
+                        'src/lib/angular-route.min.js',
+                        'src/lib/angular-resource.min.js',
                         'src/lib/angular-mocks.js'
                     ],
                     template: require('grunt-template-jasmine-istanbul'),
