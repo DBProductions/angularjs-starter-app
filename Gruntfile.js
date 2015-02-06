@@ -7,6 +7,17 @@ module.exports = function(grunt) {
          */
         clean: ['test/e2e/screenshots/*'],
         /**
+         * check style quality
+         */
+        csslint: {
+            strict: {
+                options: {
+                    import: 2
+                },
+                src: ['src/app/css/**/*.css']
+            }
+        },
+        /**
          * jshint task
          */
         jshint: {
@@ -18,6 +29,12 @@ module.exports = function(grunt) {
             options: {
                 jshintrc: 'config/.jshintrc'
             }
+        },
+        /**
+         * run code style linter
+         */
+        jscs: {
+            src: "src/app/js/**/*.js"
         },
         /**
          * jasmine task
@@ -103,12 +120,14 @@ module.exports = function(grunt) {
     });
     
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-csslint');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-jscs-checker');
     grunt.loadNpmTasks('grunt-contrib-jasmine');
     grunt.loadNpmTasks('grunt-contrib-yuidoc');
     grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-protractor-runner');
 
-    grunt.registerTask('default', ['jshint', 'jasmine', 'yuidoc']);
+    grunt.registerTask('default', ['csslint', 'jshint', 'jscs', 'jasmine', 'yuidoc']);
     grunt.registerTask('end2end', ['clean', 'protractor']);
 };

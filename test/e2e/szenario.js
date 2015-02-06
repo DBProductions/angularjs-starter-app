@@ -52,9 +52,12 @@ describe('angularjs-starter-app end to end testing', function() {
 
         var editBtn = element(by.id('editBtn'));
         var deleteBtn = element(by.id('deleteBtn'));
-        var user = element(by.binding('{{user.email}}'));
-        var age = element(by.binding('{{user.age}}'));
-        var gender = element(by.binding('{{user.gender}}'));
+
+        //ptor.sleep(5);
+
+        var user = element(by.id('userEmail'));
+        var age = element(by.id('userAge'));
+        var gender = element(by.id('userGender'));
 
         expect(editBtn.isPresent()).toBe(true);
         expect(deleteBtn.isPresent()).toBe(true);
@@ -96,8 +99,10 @@ describe('angularjs-starter-app end to end testing', function() {
             editSendBtn.click().then(function() {
                 expect(ptor.getCurrentUrl()).toEqual('http://localhost:3000/#/users/4');
 
-                var _user = element(by.binding('{{user.email}}'));
-                var _age = element(by.binding('{{user.age}}'));
+                var _user = element(by.id('userEmail'));
+                var _age = element(by.id('userAge'));
+                var _gender = element(by.id('userGender'));
+
                 expect(_user.getText()).toEqual('test@test.org');
                 expect(_age.getText()).toEqual('42');
             });
@@ -110,9 +115,9 @@ describe('angularjs-starter-app end to end testing', function() {
     it('should go from detail page to list page after deleting', function() {
         browser.get('http://localhost:3000/#/users/4');
         var deleteBtn = element(by.id('deleteBtn'));
-        var user = element(by.binding('{{user.email}}'));
-        var age = element(by.binding('{{user.age}}'));
-        var gender = element(by.binding('{{user.gender}}'));
+        var user = element(by.id('userEmail'));
+        var age = element(by.id('userAge'));
+        var gender = element(by.id('userGender'));
 
         expect(user.getText()).toEqual('test@test.org');
         expect(age.getText()).toEqual('42');

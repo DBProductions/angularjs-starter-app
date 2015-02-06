@@ -12,7 +12,7 @@ angular.module('app.services')
  * @param {Object} $q
  * @return {Object} userService
  */
-.factory('User', ['$http', '$q', function($http, $q) {
+.factory('User', [ '$http', '$q', function($http, $q) {
     return {
         /**
          * @method get
@@ -20,15 +20,15 @@ angular.module('app.services')
          * @return {Object} $q.promise
          */
         get: function get(id) {
-            var deferred = $q.defer();
-            var url = '/users';
+            var deferred = $q.defer(),
+                url = '/users';
             if (id) {
                 url += '/' + id;
             }
             $http.get(url).success(function(response) {
                 deferred.resolve(response);
             }).error(function(data, status, headers, config) {
-                deferred.reject({data: data, status: status, headers: headers, config: config});
+                deferred.reject({ data: data, status: status, headers: headers, config: config });
             });
             return deferred.promise;
         },
@@ -42,7 +42,7 @@ angular.module('app.services')
             $http.post('/users', data).success(function(response) {
                 deferred.resolve(response);
             }).error(function(data, status, headers, config) {
-                deferred.reject({data: data, status: status, headers: headers, config: config});
+                deferred.reject({ data: data, status: status, headers: headers, config: config });
             });
             return deferred.promise;
         },
@@ -57,7 +57,7 @@ angular.module('app.services')
             $http.put('/users/' + id, data).success(function(response) {
                 deferred.resolve(response);
             }).error(function(data, status, headers, config) {
-                deferred.reject({data: data, status: status, headers: headers, config: config});
+                deferred.reject({ data: data, status: status, headers: headers, config: config });
             });
             return deferred.promise;
         },
@@ -71,9 +71,9 @@ angular.module('app.services')
             $http.delete('/users/' + id).success(function(response) {
                 deferred.resolve(response);
             }).error(function(data, status, headers, config) {
-                deferred.reject({data: data, status: status, headers: headers, config: config});
+                deferred.reject({ data: data, status: status, headers: headers, config: config });
             });
             return deferred.promise;
         }
     };
-}]);
+} ]);

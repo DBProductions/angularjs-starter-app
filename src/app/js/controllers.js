@@ -11,4 +11,4 @@ angular.module('app.controllers', [])
  * @constructor
  * @param {Object} $scope
  */
-.controller('HomeCtrl', ['$scope', function($scope) {}]);
+.controller('HomeCtrl', [ '$scope', function($scope) {} ]);

@@ -10,8 +10,8 @@ angular.module('app.filters', [])
  * @constructor
  * @param {String} version
  */
-.filter('interpolate', ['version', function(version) {
+.filter('interpolate', [ 'version', function(version) {
     return function(text) {
         return String(text).replace(/\%VERSION\%/mg, version);
     };
-}]);
+} ]);

@@ -6,7 +6,7 @@ angular.module('app', [
   'app.directives',
   'app.controllers'
 ]).
-config(['$routeProvider', function($routeProvider) {
+config([ '$routeProvider', function($routeProvider) {
     $routeProvider.when('/home', {
         templateUrl: 'src/app/partials/home.html', 
         controller: 'HomeCtrl'
@@ -26,5 +26,5 @@ config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/edituser/:userId', {
         templateUrl: 'src/app/partials/users/edit.html', 
     });
-    $routeProvider.otherwise({redirectTo: '/home'});
-}]);
+    $routeProvider.otherwise({ redirectTo: '/home' });
+} ]);

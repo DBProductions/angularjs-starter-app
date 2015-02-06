@@ -13,10 +13,10 @@ angular.module('app.controllers')
  * @param {Object} $location
  * @param {Object} User
  */ 
-.controller('UserListCtrl', ['$scope', '$routeParams', '$location', 'User', function($scope, $routeParams, $location, User) {
-    User.get().then(function (response) {
+.controller('UserListCtrl', [ '$scope', '$routeParams', '$location', 'User', function($scope, $routeParams, $location, User) {
+    User.get().then(function(response) {
         $scope.users = response;
-    }, function (data) {
+    }, function(data) {
         $scope.users = [];
     });
     /**
@@ -29,7 +29,7 @@ angular.module('app.controllers')
     $scope.query = {};
     $scope.queryBy = 'email';
     $scope.orderProp = 'email';
-}])
+} ])
 /**
  * User detail controller
  *
@@ -40,8 +40,8 @@ angular.module('app.controllers')
  * @param {Object} $location
  * @param {Object} User
  */
-.controller('UserDetailCtrl', ['$scope', '$routeParams', '$location', 'User', function($scope, $routeParams, $location, User) {
-    User.get($routeParams.userId).then(function (response) {
+.controller('UserDetailCtrl', [ '$scope', '$routeParams', '$location', 'User', function($scope, $routeParams, $location, User) {
+    User.get($routeParams.userId).then(function(response) {
         $scope.user = response;
     });
     /**
@@ -56,11 +56,11 @@ angular.module('app.controllers')
      * @param {Object} user
      */
     $scope.del = function del(user) {
-        User.del(user._id).then(function (response) {
+        User.del(user._id).then(function(response) {
             $location.path('/users');
         });
     };
-}])
+} ])
 /**
  * User add controller
  * add a new user
@@ -72,7 +72,7 @@ angular.module('app.controllers')
  * @param {Object} $filter
  * @param {Object} User
  */
-.controller('UserAddCtrl', ['$scope', '$location', '$filter', 'User', function($scope, $location, $filter, User) {
+.controller('UserAddCtrl', [ '$scope', '$location', '$filter', 'User', function($scope, $location, $filter, User) {
     /**
      * submit the form
      *
@@ -86,7 +86,7 @@ angular.module('app.controllers')
             });
         }
     };
-}])
+} ])
 /**
  * User edit controller
  * edit a user
@@ -98,7 +98,7 @@ angular.module('app.controllers')
  * @param {Object} $filter
  * @param {Object} User
  */
-.controller('UserEditCtrl', ['$scope', '$routeParams', '$location', '$filter', 'User', function($scope, $routeParams, $location, $filter, User) {
+.controller('UserEditCtrl', [ '$scope', '$routeParams', '$location', '$filter', 'User', function($scope, $routeParams, $location, $filter, User) {
     User.get($routeParams.userId).then(function(response) {
         $scope.user = response;
     });
@@ -115,4 +115,4 @@ angular.module('app.controllers')
             });
         }
     };
-}]);
+} ]);
