@@ -28,11 +28,17 @@ describe('angularjs-starter-app end to end testing', function() {
         var age = element(by.model('user.age'));
         var insertBtn = element(by.id('insertBtn'));
 
+        expect(insertBtn.isEnabled()).toEqual(false);
         email.sendKeys('test@test.com');
+        expect(insertBtn.isEnabled()).toEqual(false);
+
         browser.findElements(protractor.By.model('user.gender')).then(function(models){
             models[0].click();
         });
+        expect(insertBtn.isEnabled()).toEqual(false);
+
         age.sendKeys('48');        
+        expect(insertBtn.isEnabled()).toEqual(true);
         insertBtn.click().then(function() {
             var users = element.all(by.repeater('user in users'));
 
