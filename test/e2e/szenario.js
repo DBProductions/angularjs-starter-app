@@ -4,10 +4,6 @@ describe('angularjs-starter-app end to end testing', function() {
     /**
      *
      */
-    var ptor;
-    beforeEach(function() {
-        ptor = protractor.getInstance();
-    });
     afterEach(function () {
         var currentSpec = jasmine.getEnv().currentSpec,
             passed = currentSpec.results().passed();
@@ -33,14 +29,14 @@ describe('angularjs-starter-app end to end testing', function() {
         var insertBtn = element(by.id('insertBtn'));
 
         email.sendKeys('test@test.com');
-        ptor.findElements(protractor.By.model('user.gender')).then(function(models){
+        browser.findElements(protractor.By.model('user.gender')).then(function(models){
             models[0].click();
         });
         age.sendKeys('48');        
         insertBtn.click().then(function() {
             var users = element.all(by.repeater('user in users'));
 
-            expect(ptor.getCurrentUrl()).toEqual('http://localhost:3000/#/users');
+            expect(browser.getCurrentUrl()).toEqual('http://localhost:3000/#/users');
             expect(users.count()).toEqual(4);
         });
     });
@@ -53,7 +49,7 @@ describe('angularjs-starter-app end to end testing', function() {
         var editBtn = element(by.id('editBtn'));
         var deleteBtn = element(by.id('deleteBtn'));
 
-        //ptor.sleep(5);
+        //browser.sleep(5);
 
         var user = element(by.id('userEmail'));
         var age = element(by.id('userAge'));
@@ -76,7 +72,7 @@ describe('angularjs-starter-app end to end testing', function() {
 
         editBtn.click().then(function() {
 
-            expect(ptor.getCurrentUrl()).toEqual('http://localhost:3000/#/edituser/4');
+            expect(browser.getCurrentUrl()).toEqual('http://localhost:3000/#/edituser/4');
 
             var email = element(by.model('user.email'));
             var age = element(by.model('user.age'));
@@ -92,12 +88,12 @@ describe('angularjs-starter-app end to end testing', function() {
             age.clear();
             age.sendKeys('42');
 
-            ptor.findElements(protractor.By.model('user.gender')).then(function(models){
+            browser.findElements(protractor.By.model('user.gender')).then(function(models){
                 expect(models[0].getAttribute('value')).toEqual('female');
             });
 
             editSendBtn.click().then(function() {
-                expect(ptor.getCurrentUrl()).toEqual('http://localhost:3000/#/users/4');
+                expect(browser.getCurrentUrl()).toEqual('http://localhost:3000/#/users/4');
 
                 var _user = element(by.id('userEmail'));
                 var _age = element(by.id('userAge'));
@@ -124,7 +120,7 @@ describe('angularjs-starter-app end to end testing', function() {
         expect(gender.getText()).toEqual('female');
 
         deleteBtn.click().then(function() {
-            expect(ptor.getCurrentUrl()).toEqual('http://localhost:3000/#/users');
+            expect(browser.getCurrentUrl()).toEqual('http://localhost:3000/#/users');
         });
     });
 });

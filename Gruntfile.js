@@ -109,6 +109,11 @@ module.exports = function(grunt) {
                 keepAlive: true,
                 noColor: false,
                 args: {}
+            },
+            all: {
+                options: {
+                    configFile: "config/protractor.conf.js",
+                }
             }
         },
     });
