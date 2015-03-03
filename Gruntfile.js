@@ -105,16 +105,10 @@ module.exports = function(grunt) {
          */
         protractor: {
             options: {
-                configFile: "node_modules/protractor/example/conf.js",
+                configFile: "config/protractor.conf.js",
                 keepAlive: true,
                 noColor: false,
                 args: {}
-            },
-            all: {
-                options: {
-                    configFile: "config/protractor.conf.js",
-                    args: {}
-                }
             }
         },
     });
