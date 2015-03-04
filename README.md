@@ -2,7 +2,7 @@
 
 A simple AngualrJS application, ready to extend.  
 It has a simple CRUD (Create, Read, Update, Delete) functionality shown on a list and detail view.  
-The server provide some simple user data to manipulate.
+A server provide some simple user data to manipulate.
 
 It isn't a full featured project what solves all your problems.  
 Doing the [Angular Tutorial](https://docs.angularjs.org/tutorial) before is a good choice.  
@@ -34,7 +34,7 @@ Install the dependencies.
 
 ### Run the application
 
-There is a simple server to use the project.  
+There is a simple `Express` server to use the project.  
 The server holds some user data and can create user entries, edit and delete them.  
 There is no persistence, all the time the server gets restared the old state is gone.
 
@@ -52,7 +52,7 @@ The project contains configuration files for Grunt, Karma and Protractor.
 
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
-As default there are three tasks defined, jshint, jasmine and yuidoc.
+As default there are following tasks defined, csslint, jshint, jscs, jasmine and yuidoc.
 
     $ grunt
 
@@ -68,7 +68,7 @@ It is also configured as Grunt task.
 
 ### Protractor
 
-Start the server and a standalone selenium server before you can run the end to end tests.
+It's needed to start the server and a standalone selenium server before you can run the end to end tests.
 
     $ webdriver-manager start
 
@@ -80,7 +80,7 @@ It is also configured as Grunt task.
 
     $ grunt end2end
 
-Protractor creates for every end to end test a screenshot (/test/e2e/screenshots/).
+Protractor creates a screenshot for every end to end test (/test/e2e/screenshots/).
 
 ## Travis CI and Coveralls
 

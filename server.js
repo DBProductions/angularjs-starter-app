@@ -37,7 +37,12 @@ function getHighest(array) {
 }
 function setDataEntry(data, update) {
     var curId = getHighest(data)._id;
-    var entry = {_id: curId+1, email: update.email, age: update.age, gender: update.gender};
+    var entry = {
+        _id: curId+1, 
+        email: update.email, 
+        age: update.age, 
+        gender: update.gender
+    };
     data.push(entry);
 }
 

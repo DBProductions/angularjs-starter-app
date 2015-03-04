@@ -21,7 +21,9 @@ describe('Controllers', function() {
     describe('Home Controller', function() {
         var controller;
         beforeEach(inject(function($controller) {
-            controller = $controller('HomeCtrl', { $scope: $scope });
+            controller = $controller('HomeCtrl', {
+                $scope: $scope 
+            });
         }));
 
         it('should be defined', function() {
@@ -37,6 +39,7 @@ describe('Controllers', function() {
         beforeEach(inject(function($injector, User, $q) {
             location = $injector.get('$location');
             routeParams = {};
+            // spy on user
             userService = User;
             spyOn(userService, "get").andCallFake(function(){
                 if (callSucceed) {
@@ -60,7 +63,12 @@ describe('Controllers', function() {
             var UserListCtrl;
 
             it('should have all properties like defined', inject(function($controller) {
-                UserListCtrl = $controller('UserListCtrl', { $scope: $scope, $routeParams: routeParams, $location: location, User: userService });
+                UserListCtrl = $controller('UserListCtrl', { 
+                    $scope: $scope, 
+                    $routeParams: routeParams, 
+                    $location: location, 
+                    User: userService 
+                });
                 expect($scope.query).toEqual({});
                 expect($scope.queryBy).toEqual('email');
                 expect($scope.orderProp).toEqual('email');
@@ -68,14 +76,24 @@ describe('Controllers', function() {
             }));
 
             it('should end on right location when edit gets executed', inject(function($controller) {
-                UserListCtrl = $controller('UserListCtrl', { $scope: $scope, $routeParams: routeParams, $location: location, User: userService });
+                UserListCtrl = $controller('UserListCtrl', { 
+                    $scope: $scope, 
+                    $routeParams: routeParams, 
+                    $location: location, 
+                    User: userService 
+                });
                 $scope.edit({_id: 1});
                 expect(location.path()).toBe('/edituser/1');    
             }));
 
             it('should load data like expected', inject(function($controller) {
                 callSucceed = true;
-                UserListCtrl = $controller('UserListCtrl', { $scope: $scope, $routeParams: routeParams, $location: location, User: userService });
+                UserListCtrl = $controller('UserListCtrl', { 
+                    $scope: $scope, 
+                    $routeParams: routeParams, 
+                    $location: location, 
+                    User: userService 
+                });
                 $scope.$digest();
                 expect(userService.get).toHaveBeenCalled();
                 expect($scope.users.length).toEqual(2);
@@ -83,7 +101,12 @@ describe('Controllers', function() {
 
             it('should be like expected when no data can loaded', inject(function($controller) {
                 callSucceed = false;
-                UserListCtrl = $controller('UserListCtrl', { $scope: $scope, $routeParams: routeParams, $location: location, User: userService });
+                UserListCtrl = $controller('UserListCtrl', { 
+                    $scope: $scope, 
+                    $routeParams: routeParams, 
+                    $location: location, 
+                    User: userService 
+                });
                 $scope.$digest();
                 expect(userService.get).toHaveBeenCalled();
                 expect($scope.users.length).toEqual(0);
@@ -94,7 +117,12 @@ describe('Controllers', function() {
             it('should have properties and methods like expected', inject(function($controller) {
                 routeParams.userId = 1;
                 callSucceed = true;
-                var UserDetailCtrl = $controller('UserDetailCtrl', { $scope: $scope, $routeParams: routeParams, $location: location, User: userService });
+                var UserDetailCtrl = $controller('UserDetailCtrl', { 
+                    $scope: $scope, 
+                    $routeParams: routeParams, 
+                    $location: location, 
+                    User: userService 
+                });
                 $scope.$digest();
 
                 expect($scope.user).toBeDefined();
@@ -113,8 +141,12 @@ describe('Controllers', function() {
 
         describe('User Add Controller', function() {
             it('should have properties and methods like expected', inject(function($controller) {               
-                var UserAddCtrl = $controller('UserAddCtrl', { $scope: $scope, $location: location, $filter: {}, User: userService });
-
+                var UserAddCtrl = $controller('UserAddCtrl', { 
+                    $scope: $scope, 
+                    $location: location, 
+                    $filter: {}, 
+                    User: userService 
+                });
                 expect(typeof $scope.submitForm).toEqual('function');
                 $scope.submitForm();
                 $scope.user = {_id: 1};
@@ -130,8 +162,13 @@ describe('Controllers', function() {
             it('should have properties and methods like expected', inject(function($controller) {
                 routeParams.userId = 1;
                 callSucceed = true;
-                var UserEditCtrl = $controller('UserEditCtrl', { $scope: $scope, $routeParams: routeParams, $location: location, $filter: {}, User: userService });
-
+                var UserEditCtrl = $controller('UserEditCtrl', { 
+                    $scope: $scope, 
+                    $routeParams: routeParams, 
+                    $location: location, 
+                    $filter: {}, 
+                    User: userService 
+                });
                 expect(typeof $scope.submitForm).toEqual('function');
                 $scope.submitForm();
                 $scope.user = {_id: 1};
