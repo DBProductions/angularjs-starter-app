@@ -25,12 +25,19 @@ describe('angularjs-starter-app end to end testing', function() {
     it('should add a new user', function() {
         browser.get('http://localhost:3000/#/insertuser');
         var email = element(by.model('user.email'));
+        var emailErr = element(by.id('emailErr'));
         var age = element(by.model('user.age'));
         var insertBtn = element(by.id('insertBtn'));
 
         expect(insertBtn.isEnabled()).toEqual(false);
+        expect(emailErr.isDisplayed()).toEqual(false);
+        email.sendKeys('test');
+        expect(emailErr.isDisplayed()).toEqual(true);
+        email.clear();
+        expect(emailErr.isDisplayed()).toEqual(false);
         email.sendKeys('test@test.com');
         expect(insertBtn.isEnabled()).toEqual(false);
+        expect(emailErr.isDisplayed()).toEqual(false);
 
         browser.findElements(protractor.By.model('user.gender')).then(function(models){
             models[0].click();
@@ -81,6 +88,7 @@ describe('angularjs-starter-app end to end testing', function() {
             expect(browser.getCurrentUrl()).toEqual('http://localhost:3000/#/edituser/4');
 
             var email = element(by.model('user.email'));
+            var emailErr = element(by.id('emailErr'));
             var age = element(by.model('user.age'));
             var editSendBtn = element(by.id('editBtn'));
 
@@ -89,8 +97,15 @@ describe('angularjs-starter-app end to end testing', function() {
             expect(email.getAttribute('value')).toEqual('test@test.com');
             expect(age.getAttribute('value')).toEqual('48');
 
+            expect(editSendBtn.isEnabled()).toEqual(true);
+            email.clear();
+            expect(editSendBtn.isEnabled()).toEqual(false);
+            expect(emailErr.isDisplayed()).toEqual(false);
+            email.sendKeys('test');
+            expect(emailErr.isDisplayed()).toEqual(true);
             email.clear();
             email.sendKeys('test@test.org');
+
             age.clear();
             age.sendKeys('42');
 

@@ -4,12 +4,11 @@
             <div class="form-group">
             	<label>Email:</label>
                 <input type="email" class="form-control" name="email" placeholder="Email" data-ng-model="user.email" required="required">
-                <p class="text-warning" data-ng-show="frmInsert.email.$dirty && frmInsert.email.$error.email">Valid email required.</p>
+                <p id="emailErr" class="text-warning" data-ng-show="frmInsert.email.$dirty && frmInsert.email.$error.email">Valid email required.</p>
             </div>
             <div class="form-group">
                 <label>Age:</label>
                 <input type="text" class="form-control" name="age" placeholder="Age" data-ng-model="user.age" required="required">
-                <p class="text-warning" data-ng-show="frmEdit.age.$dirty && frmEdit.age.$error.email">Is required.</p>
             </div>
             <div class="form-group">
                 <label>Gender:</label><br>                
