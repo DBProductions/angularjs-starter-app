@@ -82,12 +82,14 @@ It is also configured as Grunt task.
 
 Protractor creates a screenshot for every end to end test (/test/e2e/screenshots/).
 
-## Travis CI and Coveralls
+## Travis CI, Drone and Coveralls
 
 The continuous integration service Travis CI is monitoring this repository: [Link](https://travis-ci.org/DBProductions/angularjs-starter-app)  
+Drone is an other hosted continuous integration service: [Link](https://drone.io/github.com/DBProductions/angularjs-starter-app)
 The web service Coveralls is tracking code coverage for this repository: [Link](https://coveralls.io/r/DBProductions/angularjs-starter-app)
 
 ![Build Status](https://travis-ci.org/DBProductions/angularjs-starter-app.svg?branch=master) 
+[![Build Status](https://drone.io/github.com/DBProductions/angularjs-starter-app/status.png)](https://drone.io/github.com/DBProductions/angularjs-starter-app/latest)
 [![Coverage Status](https://coveralls.io/repos/DBProductions/angularjs-starter-app/badge.png)](https://coveralls.io/r/DBProductions/angularjs-starter-app)
 
 ## Feedback
