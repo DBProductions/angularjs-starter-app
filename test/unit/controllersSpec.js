@@ -75,6 +75,18 @@ describe('Controllers', function() {
                 expect(typeof $scope.edit).toEqual('function');
             }));
 
+            it('should change the query by value', inject(function($controller) {
+                UserListCtrl = $controller('UserListCtrl', { 
+                    $scope: $scope, 
+                    $routeParams: routeParams, 
+                    $location: location, 
+                    User: userService 
+                });
+                expect($scope.queryBy).toEqual('email');
+                $scope.setQueryBy('age');
+                expect($scope.queryBy).toEqual('age');
+            }));            
+
             it('should end on right location when edit gets executed', inject(function($controller) {
                 UserListCtrl = $controller('UserListCtrl', { 
                     $scope: $scope, 
@@ -130,6 +142,11 @@ describe('Controllers', function() {
 
                 $scope.edit({_id: 1});
                 expect(location.path()).toBe('/edituser/1');
+
+                expect(typeof $scope.confirmDel).toEqual('function');
+                expect($scope.deleted).toEqual(false);
+                $scope.confirmDel();
+                expect($scope.deleted).toEqual(true);
 
                 expect(typeof $scope.del).toEqual('function');
                 $scope.del({_id: 1});

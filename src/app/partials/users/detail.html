@@ -3,7 +3,7 @@
         <div class="btn-group">
             <a class="btn btn-default" href="/#/users" title="List"><i class="fa fa-home fa-fw"></i></a>
             <button id="editBtn" class="btn btn-default" data-ng-click="edit(user)" title="Edit"><i class="fa fa-edit fa-fw"></i></button>
-            <button id="deleteBtn" class="btn btn-default" data-ng-click="del(user)" title="Delete"><i class="fa fa-trash-o fa-fw"></i></button>
+            <button id="deleteBtn" class="btn btn-default" data-ng-click="confirmDel()" title="Delete"><i class="fa fa-trash-o fa-fw"></i></button>
         </div>
     </div>
 </div>
@@ -19,4 +19,10 @@
 <div class="row">
     <div class="col-md-1"><strong>Gender:</strong></div>
     <div class="col-md-6" id="userGender">{{user.gender}}</div>
+</div>
+<div class="row" data-ng-show="deleted">
+    <div class="col-md-1">&nbsp;</div>
+    <div class="col-md-6">
+        <button id="deleteConfirmBtn" class="btn btn-danger btn-sm" data-ng-click="del(user)" title="Delete">Delete</button>
+    </div>
 </div>

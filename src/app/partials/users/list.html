@@ -1,11 +1,20 @@
 <div class="row">
     <div class="col-md-3">
-        <input type="text" class="form-control" placeholder="Search" data-ng-model="query[queryBy]">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search by" data-ng-model="query[queryBy]">
+            <div class="input-group-btn">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">{{queryBy}} <span class="caret"></span></button>
+            <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                <li><a data-ng-click="setQueryBy('email')">email</a></li>
+                <li><a data-ng-click="setQueryBy('age')">age</a></li>
+            </ul>
+            </div>
+        </div>
     </div>
-    <div class="col-md-5 info-text">
-        There are <strong>{{(users|filter:query).length}}</strong> users<span data-ng-show="query.length"> matching &quot;{{query}}&quot;</span>.
+    <div class="col-md-6 info-text">
+        There are <strong>{{(users|filter:query).length}}</strong> users<span data-ng-show="query[queryBy].length"> matching &quot;{{query[queryBy]}}&quot;</span>
     </div>
-    <div class="col-md-4 text-right">
+    <div class="col-md-3 text-right">
         <a class="btn btn-default" href="#/insertuser"><i class="fa fa-user fa-fw"></i> Insert</a>
     </div>
 </div>
@@ -22,10 +31,12 @@
             <td><a href="#/users/{{user._id}}">{{user.email}}</a></td>
             <td>{{user.age}}</td>
             <td>{{user.gender}}</td>
-            <td><button class="btn btn-default" data-ng-click="edit(user)" title="Edit"><i class="fa fa-edit fa-fw"></i></button></td>            
+            <td class="pull-right">
+                <button class="btn btn-link" data-ng-click="edit(user)" title="Edit"><i class="fa fa-edit fa-fw"></i></button>
+            </td>            
         </tr>        
         <tr data-ng-show="(users|filter:query).length == 0">
-            <td colspan="2">No entries</td>
+            <td colspan="2">Found no users</td>
         </tr>
     </table>
 </div>

@@ -14,6 +14,10 @@ angular.module('app.controllers')
  * @param {Object} User
  */ 
 .controller('UserListCtrl', [ '$scope', '$routeParams', '$location', 'User', function($scope, $routeParams, $location, User) {
+    $scope.query = {};
+    $scope.queryBy = 'email';
+    $scope.orderProp = 'email';
+
     User.get().then(function(response) {
         $scope.users = response;
     }, function(data) {
@@ -26,9 +30,13 @@ angular.module('app.controllers')
     $scope.edit = function edit(user) {
         $location.path('/edituser/' + user._id);
     };
-    $scope.query = {};
-    $scope.queryBy = 'email';
-    $scope.orderProp = 'email';
+    /**
+     * @method setQueryBy
+     * @param {String} by
+     */
+    $scope.setQueryBy = function setQueryBy(by) {
+        $scope.queryBy = by;
+    };    
 } ])
 /**
  * User detail controller
@@ -41,6 +49,8 @@ angular.module('app.controllers')
  * @param {Object} User
  */
 .controller('UserDetailCtrl', [ '$scope', '$routeParams', '$location', 'User', function($scope, $routeParams, $location, User) {
+    $scope.deleted = false;
+    
     User.get($routeParams.userId).then(function(response) {
         $scope.user = response;
     });
@@ -50,6 +60,12 @@ angular.module('app.controllers')
      */
     $scope.edit = function edit(user) {
         $location.path('/edituser/' + user._id);
+    };
+    /**
+     * @method confirmDel
+     */
+    $scope.confirmDel = function confirmDel() {
+        $scope.deleted = true;
     };
     /**
      * @method del

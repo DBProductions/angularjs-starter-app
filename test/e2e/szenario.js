@@ -44,7 +44,7 @@ describe('angularjs-starter-app end to end testing', function() {
         });
         expect(insertBtn.isEnabled()).toEqual(false);
 
-        age.sendKeys('48');        
+        age.sendKeys('48');
         expect(insertBtn.isEnabled()).toEqual(true);
         insertBtn.click().then(function() {
             var users = element.all(by.repeater('user in users'));
@@ -134,14 +134,18 @@ describe('angularjs-starter-app end to end testing', function() {
         var deleteBtn = element(by.id('deleteBtn'));
         var user = element(by.id('userEmail'));
         var age = element(by.id('userAge'));
-        var gender = element(by.id('userGender'));
+        var gender = element(by.id('userGender'));        
 
         expect(user.getText()).toEqual('test@test.org');
         expect(age.getText()).toEqual('42');
         expect(gender.getText()).toEqual('female');
 
         deleteBtn.click().then(function() {
-            expect(browser.getCurrentUrl()).toEqual('http://localhost:3000/#/users');
+            var deleteConfirmBtn = element(by.id('deleteConfirmBtn'));
+            expect(deleteConfirmBtn.isDisplayed()).toEqual(true);
+            deleteConfirmBtn.click().then(function() {
+                expect(browser.getCurrentUrl()).toEqual('http://localhost:3000/#/users');
+            });
         });
     });
 });
