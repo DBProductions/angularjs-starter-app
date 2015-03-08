@@ -10,7 +10,7 @@ Doing the [Angular Tutorial](https://docs.angularjs.org/tutorial) before is a go
 The following libaries or frameworks are included:
 * jQuery v1.11.2  
 * Twitter Bootstrap v3.3.1  
-* Font Awesome v4.2.0  
+* Font Awesome v4.3.0  
 * Angular v1.3.14  
 
 ## Getting started
