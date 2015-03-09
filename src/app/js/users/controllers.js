@@ -35,7 +35,9 @@ angular.module('app.controllers')
      * @param {String} by
      */
     $scope.setQueryBy = function setQueryBy(by) {
+        $scope.query = {};
         $scope.queryBy = by;
+        $scope.orderProp = by;
     };    
 } ])
 /**

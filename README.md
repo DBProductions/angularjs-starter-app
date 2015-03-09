@@ -15,7 +15,7 @@ The following libaries or frameworks are included:
 
 ## Getting started
 
-Clone the angular-starter-app repository, install the dependencies and start the server.
+Clone the `angular-starter-app` repository, install the dependencies and start the server.
 
 ### Prerequisites
 
@@ -23,7 +23,7 @@ You must have git, node and npm installed.
 
 ### Clone repository
 
-Clone the angularjs-starter-app repository.
+Clone the `angularjs-starter-app` repository.
 
     $ git clone git@github.com:DBProductions/angularjs-starter-app.git
     $ cd angularjs-starter-app
