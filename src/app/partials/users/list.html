@@ -31,12 +31,12 @@
             <td><a href="#/users/{{user._id}}">{{user.email}}</a></td>
             <td>{{user.age}}</td>
             <td>{{user.gender}}</td>
-            <td class="pull-right">
+            <td>
                 <button class="btn btn-link" data-ng-click="edit(user)" title="Edit"><i class="fa fa-edit fa-fw"></i></button>
             </td>            
         </tr>        
         <tr data-ng-show="(users|filter:query).length == 0">
-            <td colspan="2">Found no users</td>
+            <td colspan="4"><strong>Found no users</strong></td>
         </tr>
     </table>
 </div>

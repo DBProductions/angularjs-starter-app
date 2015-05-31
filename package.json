@@ -29,7 +29,6 @@
     "grunt-contrib-yuidoc": "~0.4.0",
     "grunt-karma": "0.8.2",
     "grunt-protractor-runner": "~1.1.4",
-    "grunt-release": "~0.6.0",
     "grunt-template-jasmine-istanbul": "~0.2.5",
     "karma": "*",
     "karma-chrome-launcher": "~0.1.3",

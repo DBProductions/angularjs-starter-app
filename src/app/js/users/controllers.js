@@ -13,7 +13,7 @@ angular.module('app.controllers')
  * @param {Object} $location
  * @param {Object} User
  */ 
-.controller('UserListCtrl', [ '$scope', '$routeParams', '$location', 'User', function($scope, $routeParams, $location, User) {
+.controller('UserListCtrl', [ '$scope', '$location', 'User', function($scope, $location, User) {
     $scope.query = {};
     $scope.queryBy = 'email';
     $scope.orderProp = 'email';

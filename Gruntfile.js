@@ -45,7 +45,7 @@ module.exports = function(grunt) {
                 options: {
                     specs: 'test/unit/**/*.js',
                     vendor: [
-                        'src/lib/jquery-1.11.2.min.js',
+                        'src/lib/jquery-1.11.3.min.js',
                         'src/lib/bootstrap.min.js',
                         'src/lib/angular.min.js',
                         'src/lib/angular-route.min.js',
