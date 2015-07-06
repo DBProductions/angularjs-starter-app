@@ -15,6 +15,7 @@
     "protractor": "protractor config/protractor.conf.js"
   },
   "author": "dennis@dbproductions.de",
+  "license": "ISC",
   "devDependencies": {
     "body-parser": "*",
     "ejs": "*",
