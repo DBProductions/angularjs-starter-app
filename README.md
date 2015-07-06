@@ -11,7 +11,7 @@ The following libaries or frameworks are included:
 * jQuery v1.11.3  
 * Twitter Bootstrap v3.3.4  
 * Font Awesome v4.3.0  
-* Angular v1.3.15  
+* Angular v1.4.1  
 
 ## Getting started
 
