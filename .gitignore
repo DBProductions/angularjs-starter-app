@@ -3,3 +3,4 @@ coverage/
 docs/
 .DS_Store
 npm-debug.log
+pyapp/__pycache__/
