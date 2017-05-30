@@ -38,9 +38,9 @@ function getHighest(array) {
 function setDataEntry(data, update) {
     var curId = getHighest(data)._id;
     var entry = {
-        _id: curId+1, 
-        email: update.email, 
-        age: update.age, 
+        _id: curId+1,
+        email: update.email,
+        age: update.age,
         gender: update.gender
     };
     data.push(entry);
@@ -82,11 +82,11 @@ app.put('/users/:_id', function(req, res) {
     res.end(JSON.stringify(entry));
 });
 
-app.delete('/users/:_id', function(req, res) {  
+app.delete('/users/:_id', function(req, res) {
     getDataEntry(data, req.params._id, 'delete');
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify({}));
 });
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
 console.log('Server listen on port 3000 browse http://127.0.0.1:3000');
